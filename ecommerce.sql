@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2024 at 11:49 AM
+-- Generation Time: Jul 13, 2024 at 12:21 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -42,7 +42,8 @@ CREATE TABLE `customer_products` (
 
 INSERT INTO `customer_products` (`id`, `customer_id`, `product_id`, `quantity`, `created_at`, `updated_at`) VALUES
 (1, 1, 13, 5, '2024-07-13 09:48:01', '2024-07-13 09:48:01'),
-(2, 1, 13, 7, '2024-07-13 09:48:27', '2024-07-13 09:48:27');
+(2, 1, 13, 7, '2024-07-13 09:48:27', '2024-07-13 09:48:27'),
+(3, 2, 12, 15, '2024-07-13 10:21:13', '2024-07-13 10:21:13');
 
 -- --------------------------------------------------------
 
@@ -63,16 +64,10 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `product_name`, `prod_description`, `prod_qty`, `prod_price`) VALUES
-(7, 'Smartphone', 'High-end smartphone with advanced features', 100, 999.99),
-(8, 'Laptop', 'Powerful laptop for professional use', 50, 1499.99),
-(9, 'Smartwatch', 'Fitness and health tracking smartwatch', 200, 299.99),
-(10, 'Tablet', 'Compact tablet for entertainment and productivity', 80, 499.99),
+(9, 'Smartwatch', 'Fitness and health tracking smartwatch', 28000, 299.99),
+(10, 'Tablet', 'Compact tablet for entertainment and productivity', 70000, 499.99),
 (11, 'Headphones', 'Noise-canceling headphones with premium sound', 150, 199.99),
-(12, 'Smart Speaker', 'Voice-controlled smart speaker for home use', 120, 129.99),
-(13, 'Camera', 'Professional-grade digital camera with 4K recording', 18, 899.99),
-(14, 'Gaming Console', 'Next-generation gaming console with VR capabilities', 70, 399.99),
-(15, 'Router', 'High-speed wireless router for home and office', 90, 149.99),
-(16, 'External Hard Drive', 'Portable external hard drive for secure storage', 180, 79.99);
+(12, 'Smart Speaker', 'Voice-controlled smart speaker for home use', 105, 7888.00);
 
 -- --------------------------------------------------------
 
@@ -125,13 +120,13 @@ ALTER TABLE `user_login_table`
 -- AUTO_INCREMENT for table `customer_products`
 --
 ALTER TABLE `customer_products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `user_login_table`
