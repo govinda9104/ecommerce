@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
     
-    <!-- Bootstrap CSS CDN -->
+
     <link rel="stylesheet" href="<?= base_url('css/bootstrap.min.css')?>">
-    <!-- Custom CSS -->
+
     <link rel="stylesheet" href="<?= base_url('css/styles.css') ?>">
 </head>
 <body>
@@ -24,16 +24,16 @@
         </form>
     </div>
 
-    <!-- jQuery CDN -->
+   
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Bootstrap Bundle JS CDN -->
+   
     <script src="<?= base_url('js/bootstrap.bundle.min.js')?>"></script>
-    <!-- Custom JS -->
+   
     <script src="<?= base_url('js/scripts.js') ?>"></script>
 
     <script>
         $(document).ready(function() {
-            // Add your custom JavaScript code here if needed
+           
         });
     </script>
 </body>

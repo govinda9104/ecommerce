@@ -10,13 +10,12 @@
 <body>
     <div class="container">
         <h1 class="mt-5">Customer Products</h1>
-        <a href="<?= base_url('admin/dashboard') ?>" class="btn btn-secondary mt-3 mb-3">Back to Admin Dashboard</a>
+        <a href="<?= base_url('customer/dashboard') ?>" class="btn btn-secondary mt-3 mb-3">Back to Dashboard</a>
         <table id="customerProductsTable" class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Order ID</th>
+                    <th>ID</th>
                     <th>Product ID</th>
-                    <th>Customer Name</th>
                     <th>Product Name</th>
                     <th>Quantity</th>
                     <th>Price</th>
@@ -24,7 +23,7 @@
                 </tr>
             </thead>
             <tbody>
-
+                <!-- Data will be populated by JavaScript -->
             </tbody>
         </table>
     </div>
@@ -33,29 +32,28 @@
     <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function() {
-           
+            // Fetch data from the API
             $.ajax({
-                url: '<?= site_url('customer/getCustomerProducts') ?>',
+                url: '<?= site_url('customer/getcustomerorders') ?>',
                 method: 'GET',
                 dataType: 'json',
                 success: function(data) {
-                   
+                    // Populate the table with data
                     var tableBody = $('#customerProductsTable tbody');
                     tableBody.empty();
                     $.each(data, function(index, product) {
                         var row = '<tr>' +
                                   '<td>' + product.id + '</td>' +
                                   '<td>' + product.product_id + '</td>' +
-                                  '<td>' + product.name + '</td>' +
                                   '<td>' + product.product_name + '</td>' +
                                   '<td>' + product.quantity + '</td>' +
                                   '<td>' + product.prod_price + '</td>' +
-                                  '<td>' + product.total_price + '</td>' +
+                                  '<td>' + product.total_amount + '</td>' +
                                   '</tr>';
                         tableBody.append(row);
                     });
 
-                  
+                    // Initialize DataTables
                     $('#customerProductsTable').DataTable();
                 },
                 error: function(xhr, status, error) {

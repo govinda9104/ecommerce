@@ -18,9 +18,15 @@
 </head>
 <body>
     <div class="container">
+    <div class="mt-4">
+            <!-- Logout Button -->
+            <button class="btn btn-secondary" onclick="window.location.href='<?= base_url('customer/vieworders') ?>'">View Orders</button>
+            <a href="<?= base_url('login/signout') ?>" class="btn btn-danger">Logout</a>
+
+        </div>
         <h1 class="mt-5">Customer Dashboard</h1>
         
-        <!-- Products Table -->
+      
         <div class="mt-4">
             <table id="productsTable" class="table table-bordered">
                 <thead>
@@ -40,7 +46,7 @@
                             <td><?= $product['prod_qty'] ?></td>
                             <td><?= $product['prod_price'] ?></td>
                             <td>
-                                <!-- Add to Cart button with data attributes -->
+                              
                                 <button class="btn btn-primary addToCartBtn"
                                     data-id="<?= $product['id'] ?>"
                                     data-name="<?= $product['product_name'] ?>"
@@ -57,48 +63,47 @@
         </div>
     </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    <!-- Bootstrap Bundle JS (includes Popper.js) -->
     <script src="<?= base_url('js/bootstrap.bundle.min.js') ?>"></script>
 
-    <!-- DataTables JS -->
+    
     <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
 
-    <!-- Custom JS -->
+   
     <script>
         $(document).ready(function() {
-            // Initialize DataTables
+         
             $(".btn-secondary").click(function(){
                 $('#addToCartModal').modal('hide');
             })
             $('#productsTable').DataTable();
 
-            // Add to Cart button click handler
+           
             $('.addToCartBtn').click(function() {
                 var productId = $(this).data('id');
                 var productName = $(this).data('name');
                 var productQty = $(this).data('qty');
                 var productPrice = $(this).data('price');
 
-                // Set modal values
+              
                 $('#productIdModal').val(productId);
                 $('#productNameModal').text(productName);
                 $('#productPriceModal').text(productPrice);
 
-                // Show modal for entering quantity
+               
                 $('#addToCartModal').modal('show');
             });
 
-            // Modal Add to Cart button click handler
+          
             $('#modalAddToCartBtn').click(function() {
                 var productId = $('#productIdModal').val();
                 var productName = $('#productNameModal').text();
                 var productQty = $('#productQtyModal').val();
                 var productPrice = $('#productPriceModal').text();
 
-                // Perform validation (e.g., check productQty)
+             
                 if (productQty <= 0 || productQty > productQty) {
                     alert('Invalid quantity! Please enter a valid quantity.');
                     return;
@@ -114,21 +119,21 @@
                         quantity: productQty,
                         price: productPrice
                     },
-                    dataType: 'json', // Change as needed
+                    dataType: 'json', 
                     success: function(response) {
-                        // Handle successful response
+                       
                         if (response.status === 'success') {
                             alert(response.message);
-                            $('#addToCartModal').modal('hide');  // Hide the modal on success
+                            $('#addToCartModal').modal('hide'); 
                             location.reload();
                         } else {
                             alert(response.message);
                         }
-                        // Example: Update UI with response data
+                     
                         $('#result').text(response.message);
                     },
                     error: function(xhr, status, error) {
-                        // Handle error
+                     
                         console.error(xhr.responseText);
                         alert('Error: ' + xhr.responseText);
                     }
